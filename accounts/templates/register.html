@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DiaryGo - Register</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(to right,#a1c4fd,#c2e9fb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image:url("https://wallpaperaccess.com/full/1607283.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+    }
+    .container2 {
+      font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+      text-align: center;
+      text-decoration-line: overline;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #4facfe;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    button:hover { background: #00c6ff; }
+    a { text-decoration: none; margin-top: 10px; display: block; }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="container2">
+      <h3>WELCOME TO DIARY GO...</h3>
+    </div>
+
+    <h2>Create Account</h2>
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="fullname" placeholder="Full Name">
+      <input type="email" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <input type="password" name="confirm" placeholder="Confirm Password">
+      <button type="submit">Register</button>
+    </form>
+
+    <a href="{% url 'login' %}">Already have an account? Login</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DiaryGo - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("https://wallpapercave.com/wp/wp8276309.jpg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .container2 {
+      font-size: medium;
+      font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+      text-align: center;
+      text-decoration-line: overline;
+
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+    h2 { margin-bottom: 20px; }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #ff7e5f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover { background: #eb5e28; }
+    a {
+      display: block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="container2">
+      {% if messages %}
+  <div>
+    {% for msg in messages %}
+      <p style="color: red; font-weight: bold;">{{ msg }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+      <h3>WELCOME TO DIARY GO...</h3>
+    </div>
+
+    <h2>Login</h2>
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="email" placeholder="Email or Username">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+
+    <a href="{% url 'register' %}">New user? Register</a>
+  </div>
+
+</body>
+</html>
